@@ -2,7 +2,7 @@
 
 Script for combining four anim GIFs into one 2x2 mosaic. Made for tweeting nice combined screenshots of your PICO-8 projects.
 
-The script assumes the input files are 256x256 animated GIFs of the same duration (this is the default in PICO-8). Please edit the script in case you want different dimensions.
+The script assumes the input files are 256x256 (this is the default in PICO-8) animated GIFs of the same duration (and same frame rate). Please edit the script in case you want different dimensions.
 
 You need to have [Imagemagick](http://www.imagemagick.org/script/download.php) installed!
 
