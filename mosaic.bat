@@ -1,7 +1,16 @@
 @echo off
+
+rem Check for the correct amount of arguments (5)
+
 if %5.==. goto usage
+
+rem Check that Imagemagick is available
+
 magick 1> nul 2> nul
 if "%errorlevel%" == "9009" goto dependencies
+
+rem Create the montage
+
 echo [1/3] Creating top row...
 magick convert "%1" -repage 512x256 -coalesce null: ( "%2" -coalesce ) -geometry +256+0 -layers Composite temp_top.gif
 echo [2/3] Creating bottom row...
@@ -13,6 +22,7 @@ del temp_top.gif
 del temp_bottom.gif
 echo Done!
 goto quit
+
 :usage
 echo USAGE: montage.bat top-left-filename top-right-filename bottom-left-filename bottom-right-filename output-filename
 echo ""
