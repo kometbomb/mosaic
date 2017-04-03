@@ -14,7 +14,7 @@ then
   usage
 fi
 
-#if "%errorlevel%" == "9009" goto dependencies
+command -v magick >/dev/null 2>&1 || { echo "ERROR: You need to install the Imagemagick command line tools to use this script." >&2; exit 1; }
 
 echo '[1/3] Creating top row...'
 $MAGICK_CONVERT $1 -repage 512x256 -coalesce null: \( $2 -coalesce \) -geometry +256+0 -layers Composite temp_top.gif
